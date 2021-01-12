@@ -2,7 +2,7 @@ function Outstruct = dnf_getdata(Instruct)
 %Section 2F
 %%%%%%%%%%%%  To DO   %%%%%%%%
 Titles = {'Maximal number of timepoints', 'Number of numSteps','Minimal population size', 'N0', 'Fk'};
-Defaults = {num2str(Instruct.maxSteps), num2str(Instruct.maxSteps), num2str(Instruct.minSize), num2str(Instruct.N0), num2str(Instruct.Fk)};
+Defaults = {num2str(Instruct.maxSteps), num2str(Instruct.numRepeats), num2str(Instruct.minSize), num2str(Instruct.N0), num2str(Instruct.Fk)};
 Dims = [1, 30];
 while true
     Ans = inputdlg(Titles,'Simulations Data', Dims, Defaults); %display a dialog box where the user inserts values for the different fields
