@@ -10,6 +10,7 @@ while true
     if all(~isnan([C{:}])) && all([C{:}]>0)
         break
     else
+        Defaults=A; % in case the user corrected only one of a few illegal fields
         idx=[find(isnan([C{:}])),find([C{:}]<0)];
         [Defaults(idx)]={'error message'};
     end
