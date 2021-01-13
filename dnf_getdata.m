@@ -20,7 +20,7 @@ end
 
 function ind=findNeg(x)
 %internal function to find negative indeces. 
-C=cellfun(@(y)(any(y < 0)),x,'Uni',0); %a logical array, with 1 for negative numbers and 0 for positive. we use any because part of the cell is logical and part is not. 
+C=cellfun(@(y)(any(y <= 0)),x,'Uni',0); %a logical array, with 1 for negative numbers and 0 for positive. we use any because part of the cell is logical and part is not. 
 C=cell2mat(C);
 ind=find(C==1);
 
