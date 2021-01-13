@@ -1,6 +1,10 @@
 function Outstruct = dnf_getdata(Instruct)
 %Section 2F
-%%%%%%%%%%%%  To DO   %%%%%%%%
+%The function receieves a structure containing the defualt parameters for the simulation, and allows the user to replace them with new ones that will be inserted into the output structure.
+%Input: A structure as described in 1)E)i,containing the default parameters of the simulation. The structure contains the following fields:
+%   maxSteps - Maximal number of timepoints, numRepeats - number of realizations for the simulation, minSize - minimal population size serving as a threshold below which the simulation will stop
+%   N0 - the initial population size for both species, Fk - carrying capacity for both species
+
 Titles = {'Maximal number of timepoints', 'Number of numSteps','Minimal population size', 'N0', 'Fk'};
 Defaults = {num2str(Instruct.maxSteps), num2str(Instruct.numRepeats), num2str(Instruct.minSize), num2str(Instruct.N0), num2str(Instruct.Fk)};
 Dims = [1, 30];
