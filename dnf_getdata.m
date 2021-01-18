@@ -5,12 +5,12 @@ function Outstruct = dnf_getdata(Instruct)
 %   maxSteps - Maximal number of timepoints, numRepeats - number of realizations for the simulation, minSize - minimal population size serving as a threshold below which the simulation will stop
 %   N0 - the initial population size for both species, Fk - carrying capacity for both species
 
-Titles = {'Maximal number of timepoints', 'Number of numSteps','Minimal population size', 'N0', 'Fk'};
+Titles = {'Maximal number of timepoints', 'Number of numRepeats','Minimal population size', 'N0', 'Fk'};
 Defaults = {num2str(Instruct.maxSteps), num2str(Instruct.numRepeats), num2str(Instruct.minSize), num2str(Instruct.N0), num2str(Instruct.Fk)};
 Dims = [1, 30];
 while true
     Ans = inputdlg(Titles,'Simulations Data', Dims, Defaults); %display a dialog box where the user inserts values for the different fields
-    Outstruct = struct('maxSteps', str2num(Ans{1}), 'numSteps', str2num(Ans{2}),...
+    Outstruct = struct('maxSteps', str2num(Ans{1}), 'numRepeats', str2num(Ans{2}),...
         'minSize', str2num(Ans{3}), 'N0', str2num(Ans{4}), 'Fk', str2num(Ans{5}));
     C=struct2cell(Outstruct); %arrange the struct data as a cell
     if all(~cellfun(@isempty, C)) && all([C{:}]>0) %if all the inputs were inserted properly
