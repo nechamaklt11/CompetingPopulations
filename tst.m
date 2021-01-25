@@ -11,7 +11,7 @@ dnf_Annotate(popData) %Subsection ii
 defParams=struct('maxSteps',50,'numRepeats',10,'minSize',2,...
     'N0',[4.9,5.1],'Fk',1); %,Subsection i - assigning defaults simulation parameters
 simParams=dnf_getdata(defParams); %Subsection ii
-
+%%
 %QUESTION 2 SECTION I
 Times=linspace(0,simParams.maxSteps,201); %Subsection i
 
@@ -21,18 +21,18 @@ popParams(1).N0=simParams.N0(1); popParams(2).N0=simParams.N0(2); %Subsection ii
 popSize1=dnf_calcLogGrowth(popParams(1),Times); %Subsection iv
 f2=figure; %Subsection v
 subplot(2,1,1) 
-plot(popSize1,'k') %Subsection vi
+plot(Times,popSize1,'k') %Subsection vi
 hold on
 popSize2=dnf_calcLogGrowth(popParams(2),Times); %Subsection vii
-plot(popSize2,'k') 
-
+plot(Times,popSize2,'k') 
+%%
 %SECTION K
 dtr_sim=dnf_knownSim(popParams,simParams); %Subsection i - determinstic simulation
 figure %Subsection ii
 subplot(2,1,1)
-plot(dtr_sim.Pop1)
+plot(dtr_sim.Times,dtr_sim.Pop1)
 subplot(2,1,2)
-plot(dtr_sim.Pop2)
+plot(dtr_sim.Times,dtr_sim.Pop2)
 
 popParams(1).alpha=0; popParams(2).alpha=0; %Subsection iii
 simParams.minSize=0; simParams.numRepeats=1; %Subsection iv
@@ -41,5 +41,5 @@ stc_sim=dnf_knownSim(popParams,simParams); %Subsection v - stochastic simulation
 figure(f2) %Subsection vi
 subplot(2,1,2)
 hold on
-plot(stc_sim.Pop1,'b:')
-plot(stc_sim.Pop2,'b:')
+plot(stc_sim.Times,stc_sim.Pop1,'b:')
+plot(stc_sim.Times,stc_sim.Pop2,'b:')

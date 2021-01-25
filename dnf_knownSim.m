@@ -14,9 +14,9 @@ pop2 = nan(instruct2.maxSteps, instruct2.numRepeats);
 pop2Data = instruct1(2); %Calling the struct containing the data for species 2 into its own variable
 pop2(1,:) = pop2Data.N0;
 
-for i=1:instruct2.maxSteps 
-    nextGen1=calcNextGen(instruct1(1),pop1(i,:),pop2(i,:)); %calculate the next generation size of first species.
-    nextGen2=calcNextGen(instruct1(2),pop2(i,:),pop1(i,:)); %calculate the next generation size of second species.
+for i=2:instruct2.maxSteps
+    nextGen1=calcNextGen(instruct1(1),pop1(i-1,:),pop2(i-1,:)); %calculate the next generation size of first species.
+    nextGen2=calcNextGen(instruct1(2),pop2(i-1,:),pop1(i-1,:)); %calculate the next generation size of second species.
     if instruct2.numRepeats>1 %for a stochastic simulation with more than one repeat
         nextGen1=randomRound(nextGen1); %randomly round to an integer size of 1st population
         nextGen2=randomRound(nextGen2); %randomly round to an integer size of 2nd population
@@ -26,13 +26,13 @@ for i=1:instruct2.maxSteps
             break
         end
     end
-    pop1(i+1,:)=nextGen1; %update the size of the next generation for the 1st population
-    pop2(i+1,:)=nextGen2; %update the size of the next generation for the 2nd population
+    pop1(i,:)=nextGen1; %update the size of the next generation for the 1st population
+    pop2(i,:)=nextGen2; %update the size of the next generation for the 2nd population
 end
 pop1(isnan(pop1))=[]; %delete empty rows for the 1st population
 pop2(isnan(pop2))=[]; %delete empty rows for the 2nd population
 Outstruct.Pop1=pop1; Outstruct.Pop2=pop2; %updating the output struct with the calculated generation sizes
-Times=0:size(pop1,2); %The time vector equals to the number of realizations done
+Times=0:(size(pop1,1)-1); %The time vector equals to the number of steps done
 Outstruct.Times=Times'; %update the outpus struct with the Times vector calculated above
 
 function nextGen = calcNextGen(popData,lastGen,compLastGen) %Function to calculate the population in the next generation
