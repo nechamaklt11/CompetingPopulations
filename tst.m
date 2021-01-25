@@ -6,12 +6,12 @@ popData=dnf_getfile;
 figure
 dnf_plotPop(popData,{'ro','go'}) %Subsection i
 dnf_Annotate(popData) %Subsection ii
-%%
+
 %QUESTION 2 SECTION G
 defParams=struct('maxSteps',50,'numRepeats',10,'minSize',2,...
     'N0',[4.9,5.1],'Fk',1); %,Subsection i - assigning defaults simulation parameters
 simParams=dnf_getdata(defParams); %Subsection ii
-%%
+
 %QUESTION 2 SECTION I
 Times=linspace(0,simParams.maxSteps,201); %Subsection i
 
@@ -25,7 +25,7 @@ plot(popSize1,'k') %Subsection vi
 hold on
 popSize2=dnf_calcLogGrowth(popParams(2),Times); %Subsection vii
 plot(popSize2,'k') 
-%%
+
 %SECTION K
 dtr_sim=dnf_knownSim(popParams,simParams); %Subsection i - determinstic simulation
 figure %Subsection ii
