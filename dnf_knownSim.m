@@ -32,7 +32,7 @@ end
 pop1(isnan(pop1))=[]; %delete empty rows for the 1st population
 pop2(isnan(pop2))=[]; %delete empty rows for the 2nd population
 Outstruct.Pop1=pop1; Outstruct.Pop2=pop2; %updating the output struct with the calculated generation sizes
-Times=0:size(pop1,2); %The time vector equals to the number of realizations done
+Times=0:size(pop1,1); %The time vector equals to the number of steps done
 Outstruct.Times=Times'; %update the outpus struct with the Times vector calculated above
 
 function nextGen = calcNextGen(popData,lastGen,compLastGen) %Function to calculate the population in the next generation
