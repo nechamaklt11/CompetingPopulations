@@ -7,10 +7,10 @@ function Outstruct = dnf_knownSim(instruct1, instruct2)
 %the simulation parameters (as described in 1)E)i)
 %Output: a structure containing the simulation results (as described in
 %1)E)iii)
-pop1 = nan(instruct2.maxSteps, instruct2.numRepeats);
+pop1 = nan(instruct2.maxSteps+1, instruct2.numRepeats);
 pop1Data = instruct1(1); %Calling the struct containing the data for species 1 into its own variable
 pop1(1,:) = pop1Data.N0;
-pop2 = nan(instruct2.maxSteps, instruct2.numRepeats);
+pop2 = nan(instruct2.maxSteps+1, instruct2.numRepeats);
 pop2Data = instruct1(2); %Calling the struct containing the data for species 2 into its own variable
 pop2(1,:) = pop2Data.N0;
 
