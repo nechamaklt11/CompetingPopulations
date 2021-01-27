@@ -3,7 +3,7 @@ close all; clear;
 popData=dnf_getfile;
 
 %QUESTION 2 SECTION E
-figure
+f1=figure;
 dnf_plotPop(popData,{'ro','go'}) %Subsection i
 dnf_Annotate(popData) %Subsection ii
 
@@ -28,7 +28,7 @@ plot(Times,popSize2,'k')
 %
 %SECTION K
 dtr_sim=dnf_knownSim(popParams,simParams); %Subsection i - determinstic simulation
-figure %Subsection ii
+f3=figure; %Subsection ii
 subplot(2,1,1)
 plot(dtr_sim.Times,dtr_sim.Pop1)
 subplot(2,1,2)
@@ -39,7 +39,7 @@ simParams.minSize=0; simParams.numRepeats=1; %Subsection iv
 stc_sim=dnf_knownSim(popParams,simParams); %Subsection v - stochastic simulation
 
 figure(f2) %Subsection vi
-subplot(2,1,2)
+subplot(2,1,1)
 hold on
 plot(stc_sim.Times,stc_sim.Pop1,'b:')
 plot(stc_sim.Times,stc_sim.Pop2,'b:')
