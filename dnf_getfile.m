@@ -1,4 +1,5 @@
-function Outstruct = dnf_getfile %Section 2A, Outstruct=output structure, dnf=Dor,Nechama,Final
+function Outstruct = dnf_getfile
+%Section 2A, Outstruct=output structure, dnf=Dor,Nechama,Final
 %The function imports the data from an Excel file chosen by the user into a
 %structure
 %Input: none
@@ -9,7 +10,7 @@ function Outstruct = dnf_getfile %Section 2A, Outstruct=output structure, dnf=Do
 [file,path] = uigetfile({'*.xls; *xlsx'}, 'population'); %Get file name and path of file chosen by user, filtered by name and type
 Filename = fullfile(path,file); %Putting together the full path
 [numbers, txt] = xlsread(Filename);
-Outstruct = struct('Title',file,'Time',txt(1),'Sp1',txt(2),'Sp2',txt(5),'Pop1',NaNremover(numbers(:,1:2)), ...
+Outstruct = struct('Title',file,'Time',txt{1},'Sp1',txt{2},'Sp2',txt{5},'Pop1',NaNremover(numbers(:,1:2)), ...
     'Pop2',NaNremover(numbers(:,4:5)),'Comp', NaNremover(numbers(:,7:9))); %NaNremover removes all rows with NaN in the field
 function Out1 = NaNremover(Inp1) %Function to remove rows with NaN from the input
 A = ~isnan(Inp1); %Find what isn't NaN
