@@ -1,5 +1,5 @@
 function dnf_plotPop(inStruct,plotParams)
-%QUESTION 2 SECTION A
+%QUESTION 2 SECTION C
 %The function plots population data for two competing populations.
 %Inputs: inStruct & plotParams. 
 %Outpus: None. 
