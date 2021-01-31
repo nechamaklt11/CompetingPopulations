@@ -21,7 +21,7 @@ for i=1:instruct2.maxSteps
         nextGen1=randomRound(nextGen1); %randomly round to an integer size of 1st population
         nextGen2=randomRound(nextGen2); %randomly round to an integer size of 2nd population
         nextGen1(nextGen1<instruct2.minSize)=0; %zero values that are smaller than the population minimum size
-        nextGen2(nextGen1<instruct2.minSize)=0;
+        nextGen2(nextGen2<instruct2.minSize)=0;
         if all(nextGen1==0) || all(nextGen2==0) %break the loop if one of the population sizes is zero
             break
         end
