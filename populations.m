@@ -14,7 +14,7 @@ dnf_Annotate(fileData) %v
 K1=pop1Params.K; K2=pop2Params.K; %k values (i+ii); 
 sepPopParams=[pop1Params, pop2Params]; %estimated paramaters for both population (given separate populations)
 sepPopCI=[error1Params,error2Params]; %error calues for both populations, given separate populations. 
-
+K_idx=max([K1 K2]); %max K index  %%%% we need de index????
 
 
 
