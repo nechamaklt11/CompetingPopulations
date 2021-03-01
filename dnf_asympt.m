@@ -11,7 +11,6 @@ est_const=mean(last5);%(2). calculate estimated convergence constant.
 est_noise=mean(last5);%(3). calculate estimated noise value.
 while true
     dist=abs(arr-est_const); %(4a). calculate the distance between the array values and the estimated constant.
-    %ERROR IN THE QUESTION - the estimated constant i est_const, and not eps
     Idx=find(dist<est_noise); %(4b)
     const=mean(arr(Idx:end)); %(4c)
     noise=std(arr(Idx:end)); %(4d)
@@ -25,7 +24,6 @@ while true
 end
 
 CI_low=const-2*noise; CI_high=const+2*noise; %(6)
-%NOT CLEAR FROM THE QUESTION: is the CI should be 2 values array?
 CI=[CI_low,CI_high];
 
 
