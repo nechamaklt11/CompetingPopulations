@@ -9,12 +9,19 @@ dnf_plotPop(fileData,lineProp); %iv
 dnf_Annotate(fileData) %v
 %%
 %section E
-[pop1Params,error1Params]=dnf_calcSepParams(fileData.Pop1,0.8);%what is p? %i
-[pop2Params,error2Params]=dnf_calcSepParams(fileData.Pop2,0.8);%what is p? %ii
+[pop1Params,error1Params,cIdx1]=dnf_calcSepParams(fileData.Pop1,0.7); %i
+[pop2Params,error2Params,cIdx2]=dnf_calcSepParams(fileData.Pop2,0.7); %ii
 K1=pop1Params.K; K2=pop2Params.K; %k values (i+ii); 
 sepPopParams=[pop1Params, pop2Params]; %estimated paramaters for both populations (given separate populations)
 sepPopCI=[error1Params,error2Params]; %error values for both populations, given separate populations. 
-K_idx=max([K1 K2]); %max K index  %%%% we need the index????
+S_idx=max([cIdx1 cIdx2]); %max stabilization index  
+%%
+%section H
+twoCompPops=fileData.Comp; %i
+[compPop2Params, compPop2Error] = dnf_calcCompParams(pop2Params,error2Params,twoCompPops(:,3),twoCompPops(:,2),twoCompPops(:,1),S_idx);%ii
+
+
+
 
 
 
