@@ -12,5 +12,5 @@ title(inStruct.Title);
 xlabel(inStruct.Time); ylabel('seperate systems')
 %lower subplot
 subplot(2,1,2)
-xlabel(inStruct.Time); ylabel('sahred system')
+xlabel(inStruct.Time); ylabel('shared system')
 legend({inStruct.Sp1,inStruct.Sp2});
