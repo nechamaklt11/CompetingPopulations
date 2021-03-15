@@ -18,8 +18,8 @@ S_idx=max([cIdx1 cIdx2]); %max stabilization index
 %%
 %section H
 twoCompPops=fileData.Comp; %i
-[compPop1Params, compPop1Error] = dnf_calcCompParams(pop1Params,error1Params,twoCompPops(:,3),...
-    twoCompPops(:,1),twoCompPops(:,2),S_idx);%ii
+[compPop1Params, compPop1Error] = dnf_calcCompParams(pop1Params,error1Params,twoCompPops(:,2),...
+    twoCompPops(:,3),twoCompPops(:,1),S_idx);%ii
 [compPop2Params, compPop2Error] = dnf_calcCompParams(pop2Params,error2Params,twoCompPops(:,3),...
     twoCompPops(:,2),twoCompPops(:,1),S_idx);%iii
 estCompParams=[compPop1Params,compPop2Params]; %iv
