@@ -8,10 +8,10 @@ function [const,CI,Idx]=dnf_asympt(arr,eps)
 %subsection iii
 last5=arr(end-4:end); %(1). selecting the 5 last values of the array.
 est_const=mean(last5);%(2). calculate estimated convergence constant.
-est_noise=mean(last5);%(3). calculate estimated noise value.
+est_noise=std(last5);%(3). calculate estimated noise value.
 while true
     dist=abs(arr-est_const); %(4a). calculate the distance between the array values and the estimated constant.
-    Idx=find(dist<est_noise); %(4b)
+    Idx=find(dist<est_noise,1); %(4b)
     const=mean(arr(Idx:end)); %(4c)
     noise=std(arr(Idx:end)); %(4d)
     conv=abs(est_const-const)/noise; %(4e)
