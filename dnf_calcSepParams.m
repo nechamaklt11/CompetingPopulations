@@ -11,7 +11,6 @@ tsd=p*convVal; %logarithmic threshold
 [lamda,N0,CI_lamda,CI_N0]=dnf_evalLogParams(inMat,tsd);%estimate No and lamda values
 popParams=struct('N0',N0,'K',convVal,'lamda',lamda,'alpha',0); %struct as described in 1)E)ii
 errorParams=struct('N0',CI_N0,'K',CI_K,'lamda',CI_lamda,'alpha',0);
-convIdx=convIdx(1);
 
 
          
