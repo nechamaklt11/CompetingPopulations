@@ -23,9 +23,23 @@ twoCompPops=fileData.Comp; %i
 [compPop2Params, compPop2Error] = dnf_calcCompParams(pop2Params,error2Params,twoCompPops(:,3),...
     twoCompPops(:,2),twoCompPops(:,1),S_idx);%iii
 estCompParams=[compPop1Params,compPop2Params]; %iv
-estCompErrors=[compPop1Error,compPop2Error]; %v
-
-
+estCompErrors=[compPop1Error,compPop2Er%%
+%section I
+calcEstParam=fileData; %i
+maxTimePop1=max(calcEstParam.Pop1(:,1)); %ii - Last timepoimt of experiment with pop 1
+maxTimePop2=max(calcEstParam.Pop2(:,1)); %ii - Last timepoint of experiment with pop 2
+maxTimeComp=max(calcEstParam.Comp(:,1)); %ii - Last timepoint of experiment with both populations
+timesPop1=linspace(0,maxTimePop1,maxTimePop1); %iii
+timesPop2=linspace(0,maxTimePop2,maxTimePop2); %iii
+timesComp=linspace(0,maxTimeComp,maxTimeComp); %iii
+pop1Size=dnf_calcLogGrowth(pop1Params,timesPop1); %iv - Pop 1
+calcEstParam.Pop1=[timesPop1;pop1Size]';
+pop2Size=dnf_calcLogGrowth(pop2Params,timesPop2); %Pop 2
+calcEstParam.Pop2=[timesPop2;pop2Size]'; 
+compSimParams=struct('maxSteps',maxTimeComp,'numRepeats',1,'minSize',0,'N0',[estCompParams.N0],'Fk',1); %v
+%%
+%section J
+param2Txt = @(T,N,V) ['T',' ','=',' ',num2str(N),' ','[',num2str(V),']'];
 
 
 
