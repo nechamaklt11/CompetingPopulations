@@ -71,6 +71,9 @@ lgnd_bottom={fileData.Sp1,fileData.Sp2,[compN0_txt1,compA_txt1],...
 subplot(2,1,2)
 legend(lgnd_bottom)
 
-
+%QUESTION 4
+%section A
+fig2=figure; %i
+compParams=dnf_getdata(compSimParams); %ii
 
 
