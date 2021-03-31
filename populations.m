@@ -40,7 +40,37 @@ calcEstParam.Pop2=[times;pop2Size]';
 compSimParams=struct('maxSteps',maxTimeComp,'numRepeats',1,'minSize',0,'N0',[estCompParams.N0],'Fk',1); %v
 %%
 %section J
-param2Txt = @(T,N,V) ['T',' ','=',' ',num2str(N),' ','[',num2str(V),']'];
+param2Txt = @(T,N,V) [T,' ','=',' ',num2str(N),' ','[',num2str(V),']'];
+%%
+%section K
+fig1; %i
+hold all
+line_prop={'r-','b-'}; %ii
+dnf_plotPop(calcEstParam,line_prop); %iii
+%iv
+lamda_txt1=param2Txt('lamda 1st',estCompParams(1).lamda,estCompErrors(1).lamda); %(1)
+lamda_txt2=param2Txt('lamda 2nd',estCompParams(2).lamda,estCompErrors(2).lamda); %(1)
+K_txt1=param2Txt('K 1st',estCompParams(1).K,estCompErrors(1).K); %(2)
+K_txt2=param2Txt('K 2nd',estCompParams(2).K,estCompErrors(2).K); %(2)
+all_txt=[lamda_txt1,'  ',lamda_txt2,'  ',K_txt1,'  ',K_txt2]; %(3)
+subplot(2,1,2)
+title(all_txt);
+%v
+sepN0_txt1=param2Txt('N0 1st',sepPopParams(1).N0,sepPopCI(1).N0);
+sepN0_txt2=param2Txt('N0 2nd',sepPopParams(2).N0,sepPopCI(2).N0);
+lgnd_upper={fileData.Sp1,fileData.Sp2,sepN0_txt1,sepN0_txt2};
+subplot(2,1,1)
+legend(lgnd_upper)
+%vi
+compN0_txt1=param2Txt('N0 1st',estCompParams(1).N0,estCompErrors(1).N0);
+compN0_txt2=param2Txt('N0 2nd',estCompParams(2).N0,estCompErrors(2).N0);
+compA_txt1=param2Txt('alpha 1st',estCompParams(1).alpha,estCompErrors(1).alpha);
+compA_txt2= param2Txt('alpha 2nd',estCompParams(2).alpha,estCompErrors(2).alpha);
+lgnd_bottom={fileData.Sp1,fileData.Sp2,[compN0_txt1,compA_txt1],...
+[compN0_txt2,compA_txt2]};
+subplot(2,1,2)
+legend(lgnd_bottom)
+
 
 
 
