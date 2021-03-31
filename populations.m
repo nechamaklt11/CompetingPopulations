@@ -23,7 +23,8 @@ twoCompPops=fileData.Comp; %i
 [compPop2Params, compPop2Error] = dnf_calcCompParams(pop2Params,error2Params,twoCompPops(:,3),...
     twoCompPops(:,2),twoCompPops(:,1),S_idx);%iii
 estCompParams=[compPop1Params,compPop2Params]; %iv
-estCompErrors=[compPop1Error,compPop2Er%%
+estCompErrors=[compPop1Error,compPop2Error];
+%%
 %section I
 calcEstParam=fileData; %i
 maxTimePop1=max(calcEstParam.Pop1(:,1)); %ii
