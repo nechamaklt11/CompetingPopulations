@@ -120,28 +120,28 @@ while all(userSimParams.N0~=0)
 end
 %%
 %section C
-N=size(userResults.Pop1,1);
-if N>1
+if size(userResults.Pop1,2)>1
     fig3=figure;
     hold all
     mPop1=mean(userResults.Pop1,2);
     sPop1=std(userResults.Pop1,0,2);
     mPop2=mean(userResults.Pop2,2);
     sPop2=std(userResults.Pop2,0,2);
+    N=size(userResults.Pop1,1);
     if N<=50
         errorbar(userResults.Times,mPop1,sPop1);
         errorbar(userResults.Times,mPop2,sPop2);
     else
         plot(userResults.Times,mPop1)
+        title(fileData.Title)
         plot(userResults.Times,mPop2)
         mPop1_P=mPop1(1:5:end); %choose every 5th data point
         sPop1_P=sPop1(1:5:end);
         mPop2_P=mPop2(1:5:end);
-        sPop2_P=sPop2(1:5:end);
+        sPop2_P=sPop2(1:5:end);   
         t_P=userResults.Times(1:5:end);
         errorbar(t_P,mPop1_P,sPop1_P);
         errorbar(t_P,mPop2_P,sPop2_P);
         legend({sp1_txt,sp2_txt});
-        suptitle(fileData.Title);
     end
 end
