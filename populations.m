@@ -24,7 +24,9 @@ twoCompPops=fileData.Comp; %i
     twoCompPops(:,2),twoCompPops(:,1),S_idx);%iii
 estCompParams=[compPop1Params,compPop2Params]; %iv
 estCompErrors=[compPop1Error,compPop2Error]; %v
-
+simResults=dnf_knownSim(estCompParams,compSimParams);
+simCompResults=[simResults.Times,simResults.Pop1,simResults.Pop2];
+calcEstParam.Comp=simCompResults;
 %%
 %section I
 calcEstParam=fileData; %i
