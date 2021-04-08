@@ -5,8 +5,7 @@ function Outstruct = dnf_knownSim(instruct1, instruct2)
 %Inputs: Instruct1 - a structure array containing a structure for each
 %population (as described in 1)E)ii), Instruct2 - a structure containing
 %the simulation parameters (as described in 1)E)i)
-%Output: a structure containing the simulation results (as described in
-%1)E)iii)
+%Output: a structure containing the simulation results (as described in 1)E)iii)
 pop1 = nan(instruct2.maxSteps+1, instruct2.numRepeats);
 pop1Data = instruct1(1); %Calling the struct containing the data for species 1 into its own variable
 pop1(1,:) = pop1Data.N0;
@@ -33,7 +32,7 @@ pop1(isnan(pop1))=[]; %delete empty rows for the 1st population
 pop2(isnan(pop2))=[]; %delete empty rows for the 2nd population
 Outstruct.Pop1=pop1; Outstruct.Pop2=pop2; %updating the output struct with the calculated generation sizes
 Times=0:size(pop1,1)-1; %The time vector equals to the number of steps done
-Outstruct.Times=Times'; %update the outpus struct with the Times vector calculated above
+Outstruct.Times=Times'; %update the output struct with the Times vector calculated above
 
 function nextGen = calcNextGen(popData,lastGen,compLastGen) %Function to calculate the population in the next generation
 nextGen = lastGen.*popData.lamda.^(1-((lastGen+popData.alpha.*compLastGen)./popData.K));
