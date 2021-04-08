@@ -1,5 +1,5 @@
 function [popParams,errorParams,convIdx]=dnf_calcSepParams(inMat,p)
-%QUESTION 2 SECTION D
+%QUESTION 3 SECTION D
 %calculate system parameters for separate populations. 
 %inputs: inMat: mat with two columns: time and population.
          %p: value represents the percentage that behind it the population
