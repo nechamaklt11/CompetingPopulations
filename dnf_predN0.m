@@ -6,8 +6,8 @@ function [N0,CI]=dnf_predN0(inMat,T,lamda)
          %value, we assume that the population grows logarithmically
          %lamda
 %OUTPUTS: %N0 (predicted N0), CI (confidence interval)
-pop=inMat(:,2); times=inMat(:,1); 
+pop=inMat(:,2); times=inMat(:,1); %assigining variables for population size and time points
 logIdx=pop<T; logPop=pop(logIdx); logTimes=times(logIdx); %population and times under the required threshold. 
 calcArr=logPop./(lamda.^logTimes);
 N0=mean(calcArr); %prediction for N0
-CI=[N0-2*std(calcArr), N0+2*std(calcArr)];
+CI=[N0-2*std(calcArr), N0+2*std(calcArr)]; %calculating the CI for N0
