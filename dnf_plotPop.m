@@ -3,7 +3,7 @@ function dnf_plotPop(inStruct,plotParams)
 %The function plots population data for two competing populations.
 %Inputs: inStruct & plotParams. 
 %Outpus: None. 
-%inStruct: struct as described in 1)E)iV), contains data of two populations. The struct contains the following fiels:
+%inStruct: struct as described in 1)E)iV), contains data of two populations. The struct contains the following fields:
 %    Title - general title, Time- title for x axis, Sp1-Title for 1st y axis, Sp2-Title for 2nd y axis,
 %    Pop1-data about the 1st population, Pop2-data about the 2nd population, Comp-data for both competing populations. 
 %plotParams:cell array with plot parameters. 
