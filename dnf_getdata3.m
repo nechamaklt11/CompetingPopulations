@@ -13,19 +13,19 @@ while true
     Outstruct = struct('maxSteps', str2num(Ans{1}), 'numRepeats', str2num(Ans{2}),...
         'minSize', str2num(Ans{3}), 'N0', str2num(Ans{4}), 'Fk', str2num(Ans{5}));
     error_ind=[];
-    if Outstruct.maxSteps<=0 || isempty(Outstruct.maxSteps)
+    if all(Outstruct.maxSteps<=0) || isempty(Outstruct.maxSteps)
         error_ind=[error_ind 1];
     end
-    if Outstruct.numRepeats<=0 || isempty(Outstruct.numRepeats)
+    if all(Outstruct.numRepeats<=0) || isempty(Outstruct.numRepeats)
         error_ind=[error_ind 2];
     end
-    if Outstruct.minSize<0 || isempty(Outstruct.minSize)
+    if all(Outstruct.minSize<0) || isempty(Outstruct.minSize)
         error_ind=[error_ind 3];
     end
     if all(Outstruct.N0<=0) || any(Outstruct.N0<0) || isempty(Outstruct.N0)
         error_ind=[error_ind 4];
     end
-    if Outstruct.Fk<0 || isempty(Outstruct.Fk)
+    if all(Outstruct.Fk<0) || isempty(Outstruct.Fk)
         error_ind=[error_ind 5];
     end
     if isempty(error_ind)
